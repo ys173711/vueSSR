@@ -13,6 +13,8 @@ import Tabs from './components/Tabs'
 import './assets/styles/reset.css'
 import './assets/styles/global.styl'
 
+Vue.prototype.$eventBus = new Vue()
+
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(Meta)

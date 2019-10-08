@@ -1,7 +1,10 @@
 <template>
     <section class="section">
       <div class="tables-container">
-        <tabs value='1'>
+        <tabs
+          :value='tabs_value'
+          @changeTab='changeTab'
+        >
           <tab index='1' label='tab1'></tab>
           <tab index='2'>
             <span>tab2</span>
@@ -48,8 +51,8 @@ export default {
     return {
       todos: [],
       filter: 'all',
-      todos_id: 0
-
+      todos_id: 0,
+      tabs_value: '1'
     }
   },
   computed: {
@@ -96,13 +99,13 @@ export default {
     },
     clearUncompletedData () {
       this.todos = this.todos.filter((v, i, arr) => !v.isCompleted)
+    },
+    changeTab (i) {
+      this.tabs_value = i
     }
   },
   mounted () {
-    console.log('---this.id---');
-    console.log(this.id);
-    console.log('---this.id---');
-    console.log(this);
+
   },
   // 组件内路由钩子
   beforeRouteEnter (to, from, next) {

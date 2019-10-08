@@ -37,8 +37,8 @@ export default {
   methods: {
     notify () { // 通过js方式调用公共组件
       this.$notify({
-        content: 'test notification',
-        autoClose: '1000000'
+        content: 'test notification'
+        // autoClose: '4000'
       })
     }
   },

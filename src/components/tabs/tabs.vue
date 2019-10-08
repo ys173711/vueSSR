@@ -16,7 +16,15 @@ export default {
     }
   },
   created () {
-    console.log(this)
+
+  },
+  mounted () {
+
+  },
+  methods: {
+    tabToggle (index) {
+      this.$emit('changeTab', index)
+    }
   }
 }
 </script>

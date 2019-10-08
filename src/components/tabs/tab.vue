@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     toggle () {
-      this.$parent.value = this.index
+      this.$parent.tabToggle(this.index)
     }
   },
   created () {
