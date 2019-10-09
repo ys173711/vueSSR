@@ -1,6 +1,6 @@
 <template>
   <li class='tab'
-    :class='{active: isActive, cursor: isActive}'
+    :class='{active: isActive}'
     @click='toggle'
   >
     <span>{{label}}</span>
@@ -54,9 +54,8 @@ export default {
   bottom -2px
   cursor pointer
   &.active
-    border-bottom 2px solid blue
+    border-bottom 2px solid blue;cursor auto
   &:last-child
     margin-right 0
-  &.cursor
-    cursor: auto
+
 </style>

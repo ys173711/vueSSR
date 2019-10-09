@@ -3,21 +3,18 @@
       <div class="tables-container">
         <tabs
           :value='tabs_value'
-          @changeTab='changeTab'
+          @changeTab='changeTabHandle'
         >
           <tab
             v-for="state in states"
             :index='state.id'
             :label='state.name'
             :key="state.id"
-            :class="[state.des, {'filter': selectState==state.id}]"
-            @click="toggleFilter(state.id)"
           ></tab>
         </tabs>
       </div>
       <input type="text" class="add-input" autofocus='autofocus' placeholder="接下来要做什么？"
         @keyup.enter="addTodo"
-        v-model="inputContent"
         >
       <Items
         v-for="todo in todos_show"
@@ -47,15 +44,12 @@ export default {
   components: {
     [Items.name]: Items
   },
-  props: {
-    id: {required: true, type: String}
-  },
   data () {
     return {
       todos: [],
       filter: 'all',
       todos_id: 0,
-      tabs_value: '1', // tabs组件默认展示
+      tabs_value: '0', // tabs组件默认展示
       states: [
         {id: 0, des: 'all', name: '所有事务'},
         {id: 1, des: 'active', name: '未完成事务'},
@@ -103,12 +97,8 @@ export default {
         (v, i) => v.id == id
       ), 1)
     },
-    changeTab (i) {
-      this.tabs_value = i
-    },
-    toggleFilter (id) {
-      this.todos_id = id
-      this.selectState = id
+    changeTabHandle (id) {
+      this.tabs_value = id
     },
     clearBtn () {
       this.todos = this.todos.filter((v, i, arr) => !v.isCompleted)
