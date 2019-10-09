@@ -3,8 +3,8 @@
     :class='{active: isActive, cursor: isActive}'
     @click='toggle'
   >
-    <span v-if='label'>{{label}}</span>
-    <slot v-else></slot>
+    <span>{{label}}</span>
+
   </li>
 </template>
 
@@ -37,6 +37,9 @@ export default {
     }
   },
   created () {
+    this.$parent.panes.push(this)
+  },
+  mounted () {
 
   }
 }

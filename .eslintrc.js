@@ -1,7 +1,8 @@
 module.exports = {
     root: true,
     parserOptions: {
-        parser: 'babel-eslint' //指定js的检测处理器
+        parser: 'babel-eslint', //指定js的检测处理器
+        ecmaVersion: 2018
     },
     env: { //指定要启用的环境，检测时不会把这些环境的全局变量识别为未定义的而报错
         "browser": true,
@@ -9,6 +10,7 @@ module.exports = {
         "commonjs": true,
         "es6": true
     },
+    parser: 'vue-eslint-parser',
     extends: [
         //切换更严格检测模式
         //'plugin:vue/recommended' 'plugin:vue/strongly-recommended'
