@@ -5,6 +5,7 @@ const staticRouter = require('./routes/static')
 const apiRouter = require('./routes/api')
 const createDb = require('./db/db')
 const config = require('../app.config')
+const koaBody = require('koa-body')
 
 const db = createDb(config.db.appId, config.db.appKey)
 
@@ -40,6 +41,7 @@ app.use(async (ctx, next) => {
   await next()
 })
 
+app.use(koaBody())
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 

@@ -1,6 +1,5 @@
 # /node_modules/* and /bower_components/* in the project root are ignored by default
 
-src/assets
-public/
-build-server/
-node_modules/*
+/public/
+/build-server/
+/node_modules/*
