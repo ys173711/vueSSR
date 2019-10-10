@@ -17,13 +17,13 @@
   text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 
-#app[data-v-34b1ea42] {
+#app[data-v-017c2c78] {
   position: relative;
   height: 100%;
   left: 0;
   top: 0;
 }
-#app .cover[data-v-34b1ea42] {
+#app .cover[data-v-017c2c78] {
   position: absolute;
   left: 0;
   top: 0;
@@ -33,21 +33,80 @@
   opacity: 0.9;
   z-index: -1;
 }
-.router-link-exact-active[data-v-34b1ea42] {
+.router-link-exact-active[data-v-017c2c78] {
   color: #f00;
 }
-.btn_to[data-v-34b1ea42] {
+.btn_to[data-v-017c2c78] {
   border: 1px solid #ffa500;
   border-radius: 4px;
   padding: 2px 4px;
 }
-.fade-enter[data-v-34b1ea42],
-.fade-leave-to[data-v-34b1ea42] {
+.fade-enter[data-v-017c2c78],
+.fade-leave-to[data-v-017c2c78] {
   opacity: 0;
 }
-.fade-enter-active[data-v-34b1ea42],
-.fade-leave-active[data-v-34b1ea42] {
+.fade-enter-active[data-v-017c2c78],
+.fade-leave-active[data-v-017c2c78] {
   transition: opacity 0.5s;
+}
+
+.notification[data-v-46f59862] {
+  display: inline-flex;
+  background-color: #303030;
+  color: #fff;
+  align-items: center;
+  padding: 20px;
+  min-width: 280px;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
+  flex-wrap: wrap;
+  transition: all 0.3s;
+}
+.content[data-v-46f59862] {
+  padding: 0;
+}
+.btn[data-v-46f59862] {
+  color: #ff4081;
+  padding-left: 24px;
+  margin-left: auto;
+  cursor: pointer;
+}
+.fade-enter[data-v-46f59862],
+.fade-leave-to[data-v-46f59862] {
+  opacity: 0;
+}
+.fade-enter-active[data-v-46f59862],
+.fade-leave-active[data-v-46f59862] {
+  transition: opacity 0.5s;
+}
+
+.tabs[data-v-63b52e07] {
+  display: block;
+}
+.tabs-header[data-v-63b52e07] {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tabs-header .tabs-content[data-v-63b52e07] {
+  min-height: 20px;
+  background-color: #ffa500;
+}
+
+.tab[data-v-1b0eb2e8] {
+  list-style: none;
+  line-height: 40px;
+  margin-right: 30px;
+  position: relative;
+  bottom: -2px;
+  cursor: pointer;
+}
+.tab.active[data-v-1b0eb2e8] {
+  border-bottom: 2px solid #00f;
+  cursor: auto;
+}
+.tab[data-v-1b0eb2e8]:last-child {
+  margin-right: 0;
 }
 
 /* * {

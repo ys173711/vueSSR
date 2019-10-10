@@ -100,9 +100,6 @@ if (isDev) {
       app: path.join(__dirname, '../src/entry-client.js'),
       vendor: ['vue']
     },
-    output: {
-      publicPath: '/public/'
-    },
     module: {
       rules: [
         {
@@ -112,8 +109,8 @@ if (isDev) {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '/public/',
-                hmr: isDev
+                hmr: isDev,
+                publicPath: '/'
               }
             },
             'css-loader',
@@ -131,8 +128,8 @@ if (isDev) {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '/',
-                hmr: isDev // 已取代vue-style-loader的hmr功能
+                hmr: isDev,
+                publicPath: '/'
               }
             },
             'css-loader',
