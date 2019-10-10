@@ -1,7 +1,7 @@
 <template>
     <section class="section">
       <div class="tables-container">
-        <tabs
+        <tabs class="tabs"
           :value='tabs_value'
           @changeTab='changeTabHandle'
         >
@@ -48,7 +48,7 @@ export default {
     return {
       todos: [],
       filter: 'all',
-      todos_id: 0,
+      todos_id: 0, // todos列表默认展示所有
       tabs_value: '0', // tabs组件默认展示
       states: [
         {id: 0, des: 'all', name: '所有事务'},
@@ -99,6 +99,7 @@ export default {
     },
     changeTabHandle (id) {
       this.tabs_value = id
+      this.todos_id = id
     },
     clearBtn () {
       this.todos = this.todos.filter((v, i, arr) => !v.isCompleted)
@@ -134,9 +135,9 @@ export default {
     }
 }
 .tables-container
-  background-color #fff;border-bottom 2px solid #ededed;
+  background-color #fff;padding 0 20px;
   .tabs
-    padding 0;
+    padding 0;border-bottom 2px solid #ededed;
 .helper {
     font-weight: 100;display: flex;justify-content: space-between;padding: 5px 0;line-height: 30px;background-color: #fff;font-size: 14px;font-smoothing: antialiased;
     .clearBtn {
