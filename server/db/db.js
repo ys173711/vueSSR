@@ -30,17 +30,14 @@ module.exports = (appId, appKey) => {
 
   return {
     async getAllTodos () {
-      return handleRequest(await request.get(
-        `/${className}`, 
-        {headers: getHeaders()}
-      ))
+      return handleRequest(await request.get(`/${className}`, {
+        headers: getHeaders()
+      }))
     },
     async addTodo (todo) {
-      return handleRequest(await request.post(
-        `/${className}`, 
-        todo,
-        {headers: getHeaders()}
-      ))
+      return handleRequest(await request.post(`/${className}`, todo, {
+        headers: getHeaders()
+      }))
     }
   }
 }
