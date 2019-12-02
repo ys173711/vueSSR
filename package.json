@@ -1,7 +1,7 @@
 {
   "name": "vuessr",
   "version": "1.0.0",
-  "description": "",
+  "description": "a demo project for vuessr",
   "main": "index.js",
   "scripts": {
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
@@ -15,7 +15,11 @@
     "build": "cnpm run clean && cnpm run build:client && cnpm run build:server",
     "start": "cross-env NODE_ENV=production node server/server.js"
   },
-  "author": "",
+  "author": {
+    "name": "Sen Yang",
+    "email": "ysen173711@163.com",
+    "url": "https://github.com/ys173711"
+  },
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
