@@ -16,7 +16,7 @@
     "start": "cross-env NODE_ENV=production node server/server.js"
   },
   "author": {
-    "name": "Sen Yang",
+    "name": "YangSen",
     "email": "ysen173711@163.com",
     "url": "https://github.com/ys173711"
   },
