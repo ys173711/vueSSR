@@ -1,0 +1,178 @@
+{
+  "front-version": "2.8.0.1",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "id": "7132f479-07a3-455a-9c6c-6e63636d3b1b",
+      "lastModified": "2019-12-03T21:06:03.873+08:00",
+      "name": "todo"
+    },
+    {
+      "type": "Scenario",
+      "id": "080f1220-74d0-4a11-9f89-288fac26a247",
+      "lastModified": "2019-12-03T21:04:06.682+08:00",
+      "name": "todo",
+      "requestOrder": [
+        "获取所有todos列表",
+        "新增一个todo",
+        "修改一个todo",
+        "删除一个todo"
+      ],
+      "parentId": "7132f479-07a3-455a-9c6c-6e63636d3b1b"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded"
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:3333",
+        "path": "/api/todos"
+      },
+      "id": "a1173952-4277-4730-abaa-468ea615fcfe",
+      "lastModified": "2019-12-03T20:47:18.468+08:00",
+      "name": "获取所有todos列表",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "080f1220-74d0-4a11-9f89-288fac26a247"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded"
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"content\": \"todo test request 3\",\n  \"isCompleted\": \"false\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:3333",
+        "path": "/api/todo"
+      },
+      "id": "507bdc4e-182a-4a7c-9cb9-7f302ec99181",
+      "lastModified": "2019-12-03T20:47:18.468+08:00",
+      "name": "新增一个todo",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "080f1220-74d0-4a11-9f89-288fac26a247"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+        "name": "PUT"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded"
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"content\": \"todo 1 updated\",\n  \"isCompleted\": \"false\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:3333",
+        "path": "/api/todo/5de656f82e215c487b77f12a"
+      },
+      "id": "118a1b7b-ce53-412e-97fc-a4081458f27b",
+      "lastModified": "2019-12-03T20:47:18.468+08:00",
+      "name": "修改一个todo",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {},
+      "parentId": "080f1220-74d0-4a11-9f89-288fac26a247"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+        "name": "DELETE"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded"
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"content\": \"todo 1 updated\",\n  \"isCompleted\": \"false\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:3333",
+        "path": "/api/todo/5de6597b7816c12711619071"
+      },
+      "id": "d559cca5-298b-48a1-8a39-89729daed07b",
+      "lastModified": "2019-12-03T21:06:03.874+08:00",
+      "name": "删除一个todo",
+      "headers": [],
+      "metaInfo": {},
+      "parentId": "080f1220-74d0-4a11-9f89-288fac26a247"
+    }
+  ]
+}

@@ -51,14 +51,11 @@ npm run build:client
 ### 服务端渲染
 
 ```bash
-# 需要首先打包客户端渲染应用
-npm run build:client
+# 需要首先打包客户端渲染应用和服务端渲染应用
+npm run build
 
 # 启动服务
 npm run start
-
-# 打包应用
-npm run build
 ```
 浏览器访问 [http://localhost:3333](http://localhost:3333)
 
