@@ -1,3 +1,5 @@
+// const isDev = process.env.NODE_ENV == 'development'
+
 module.exports = {
     root: true,
     parserOptions: {
@@ -27,6 +29,6 @@ module.exports = {
         "camelcase": [0], //允许驼峰命名
         "semi": 0, // 允许使用分号
         "quotes": [0], //关闭双引号
-        "no-useless-return": 0 //没必要的return语句
+        "no-useless-return": 0, //没必要的return语句
     }
 }

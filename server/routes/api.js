@@ -2,6 +2,18 @@ const Router = require('koa-router')
 
 const apiRouter = new Router({prefix: '/api'});
 
+// 登录验证
+const validateUser = async (ctx, next) => {
+  if (!ctx.session.user) {
+    // 未经授权，需要身份验证
+    ctx.status = 401
+    ctx.body = 'need login'
+  } else {
+    await next()
+  }
+}
+apiRouter.use(validateUser)
+
 // 为了让前端方便判断，需要给统一格式
 const successResponse = (data) => {
   return {

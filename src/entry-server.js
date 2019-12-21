@@ -11,7 +11,7 @@ export default context => {
         return reject(new Error('no components matched'));
       }
       context.meta = app.$meta()
-      resolve(app);
+      resolve(app)
     })
   })
 }

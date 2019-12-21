@@ -50,6 +50,17 @@ module.exports = (appId, appKey) => {
       return handleRequest(await request.delete(`/${className}/${id}`, {
         headers: getHeaders()
       }))
+    },
+    async deleteCompleted (ids) {
+      const requests = ids.map(id => {
+        return {
+          method: 'delete',
+          path: `/mcm/api/${className}/${id}`
+        }
+      })
+      return handleRequest(await request.post('/batch', { requests }, {
+        headers: getHeaders()
+      }))
     }
   }
 }

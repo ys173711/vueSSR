@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import Items from './todo/items.vue'
 
 let id = 0
@@ -46,7 +47,6 @@ export default {
   },
   data () {
     return {
-      todos: [],
       filter: 'all',
       todos_id: 0, // todos列表默认展示所有
       tabs_value: '0', // tabs组件默认展示
@@ -59,6 +59,9 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      todos: 'todos'
+    }),
     uncompletedNum () {
       let obj = this.todos.reduce(
         (pre, v, i, arr) => {
@@ -84,6 +87,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'fetchTodos'
+    ]),
     addTodo (e) {
       this.todos.unshift({
         id: id++,
@@ -106,7 +112,7 @@ export default {
     }
   },
   mounted () {
-
+    this.fetchTodos()
   },
   beforeRouteEnter (to, from, next) {
     console.log('beforeRouteEnter invoked');
@@ -120,9 +126,10 @@ export default {
   },
   beforeRouteLeave (to, from, next) { // 控制用户页面离开行为
     console.log('beforeRouteLeave invoked');
-    if (global.confirm('are you sure ? ')) {
+    /* if (global.confirm('are you sure ? ')) {
       next();
-    }
+    } */
+    next()
   }
 }
 </script>

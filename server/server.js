@@ -6,10 +6,18 @@ const apiRouter = require('./routes/api')
 const createDb = require('./db/db')
 const config = require('../app.config')
 const koaBody = require('koa-body')
+const koaSession = require('koa-session')
+const userRouter = require('./routes/user')
 
 const db = createDb(config.db.appId, config.db.appKey)
 
 const app = new Koa();
+
+app.keys = ['vuessr Demo']
+app.use(koaSession({
+  key: 'v-ssr-id',
+  maxAge: 24 * 60 * 60 * 1000 // 24小时过期时间
+}, app))
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -28,6 +36,11 @@ app.use(async (ctx, next) => {
   }
 })
 
+/* app.all('*', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin || '*')
+  res.header()
+}) */
+
 app.use(async (ctx, next) => {
   if (ctx.path === '/favicon.ico') {
     await send(ctx, '/favicon.ico', {root: path.join(__dirname, '../')})
@@ -42,6 +55,7 @@ app.use(async (ctx, next) => {
 })
 
 app.use(koaBody())
+app.use(userRouter.routes()).use(userRouter.allowedMethods())
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 

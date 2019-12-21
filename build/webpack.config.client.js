@@ -44,7 +44,8 @@ let devServer = {
     index: '/public/index.html'
   },
   proxy: {
-
+    '/api': 'http://127.0.0.1:3333',
+    '/user': 'http://127.0.0.1:3333'
   }
 }
 

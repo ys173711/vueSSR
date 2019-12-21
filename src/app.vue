@@ -2,10 +2,10 @@
     <div id="app">
         <div class="cover"></div>
         <Header></Header>
-        <button @click="notify">click me</button>
+        <!-- <button @click="notify">click me</button>
         <router-link to="/app/123?name=111&b=456" class='btn_to'>跳转首页123</router-link>
         <router-link to="/app/456?b=xixixi" class='btn_to'>跳转首页456</router-link>
-        <router-link :to="{name: 'login'}" class='btn_to'>跳转登录页</router-link>
+        <router-link :to="{name: 'login'}" class='btn_to'>跳转登录页</router-link> -->
         <transition name="fade">
           <router-view></router-view>
         </transition>
