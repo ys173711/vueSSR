@@ -31,7 +31,6 @@ export default {
       >
         <span>{this.mail} Written by {this.author}</span>
         {/* <p>: {this.username}</p> */}
-        <p>: {this.info}</p>
       </div>
     )
   },

@@ -36,11 +36,6 @@ app.use(async (ctx, next) => {
   }
 })
 
-/* app.all('*', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', req.headers.origin || '*')
-  res.header()
-}) */
-
 app.use(async (ctx, next) => {
   if (ctx.path === '/favicon.ico') {
     await send(ctx, '/favicon.ico', {root: path.join(__dirname, '../')})

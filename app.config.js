@@ -6,5 +6,11 @@ module.exports = {
   db: {
     appId: 'A6025125895875',
     appKey: 'E493D677-D7FC-E452-7940-C336D0B5319D'
+  },
+  cdn: {
+    host: 'http://q4lrgacu1.bkt.clouddn.com',
+    bucket: 'vuessr-study',
+    AK: 'KTb2YBR2zBuISlnZtl8Djsqz0K0FWSyw3-pVLkET',
+    SK: 'w-zB1f8adP9-ReZdHs4XK5GNr0aknf40InSCHJur'
   }
 }

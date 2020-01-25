@@ -13,7 +13,13 @@
     "lint-fix": "eslint --fix --ext .js --ext .vue --ext .jsx src/",
     "dev": "concurrently \"cnpm run dev:client\" \"cnpm run dev:server\"",
     "build": "cnpm run clean && cnpm run build:client && cnpm run build:server",
-    "start": "cross-env NODE_ENV=production node server/server.js"
+    "start": "cross-env NODE_ENV=production node server/server.js",
+    "pm2-start": "pm2 start pm2.yml --env production",
+    "pm2-stop": "pm2 stop vue-todo",
+    "pm2-restart": "pm2 restart vue-todo",
+    "pm2-list": "pm2 list",
+    "pm2-log": "pm2 log vue-todo",
+    "upload": "node build/cdn.upload.js"
   },
   "author": {
     "name": "YangSen",
@@ -64,6 +70,7 @@
     "nodemon": "^1.19.2",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "qiniu": "^7.3.0",
     "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
     "stylus": "^0.54.5",

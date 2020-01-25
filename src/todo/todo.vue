@@ -21,11 +21,12 @@
         :key="todo.id"
         :todo="todo"
         @del='deleteTodo'
+        @toggle='toggleTodo'
       ></Items>
       <div class="helper">
         <span class="left">{{uncompletedNum}}条未完成事务</span>
         <button class="clearBtn"
-            @click="clearBtn"
+            @click="deleteAllCompleted"
         >清空已完成的事务</button>
     </div>
     </section>
@@ -34,8 +35,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import Items from './todo/items.vue'
-
-let id = 0
+import { deepclone } from '../util/deepclone'
 
 export default {
   metaInfo: {
@@ -75,11 +75,11 @@ export default {
       return obj.count
     },
     todos_show () {
-      if (this.todos_id == 0) {
+      if (this.todos_id === 0) {
         return this.todos
-      } else if (this.todos_id == 1) {
+      } else if (this.todos_id === 1) {
         return this.todos.filter((v, i, arr) => !v.isCompleted)
-      } else if (this.todos_id == 2) {
+      } else if (this.todos_id === 2) {
         return this.todos.filter((v, i, arr) => v.isCompleted)
       } else {
         return this.todos
@@ -88,27 +88,35 @@ export default {
   },
   methods: {
     ...mapActions([
-      'fetchTodos'
+      'fetchTodos', 'createTodo', 'updateTodo', 'deleteTodo', 'deleteAllCompleted'
     ]),
     addTodo (e) {
-      this.todos.unshift({
-        id: id++,
-        content: e.target.value.trim(),
+      const content = e.target.value.trim()
+      if (!content) {
+        this.$notify({
+          content: '必须输入待办事项！'
+        })
+      }
+      const todo = {
+        content,
         isCompleted: false
-      })
+      }
+      this.createTodo(todo)
       e.target.value = ''
     },
-    deleteTodo (id) {
-      this.todos.splice(this.todos.findIndex(
-        (v, i) => v.id == id
-      ), 1)
+    //
+    toggleTodo (todo) {
+      const copy_todo = deepclone(todo)
+      copy_todo.isCompleted = !copy_todo.isCompleted
+      this.updateTodo({
+        id: todo.id,
+        todo: copy_todo
+      })
+      console.log(this.todos)
     },
     changeTabHandle (id) {
       this.tabs_value = id
       this.todos_id = id
-    },
-    clearBtn () {
-      this.todos = this.todos.filter((v, i, arr) => !v.isCompleted)
     }
   },
   mounted () {
