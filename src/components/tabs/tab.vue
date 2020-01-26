@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     isActive () {
-      return this.index == this.$parent.value
+      return this.index === this.$parent.value
     }
   },
   data () {

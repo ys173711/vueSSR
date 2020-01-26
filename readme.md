@@ -37,34 +37,9 @@ npm install
 npm install --registry=https://registry.npm.taobao.org
 ```
 
-### 客户端渲染
-
-```bash
-# 启动服务
-npm run dev:client
-
-# 打包应用
-npm run build:client
-```
-浏览器访问 [http://localhost:8000](http://localhost:8000)
-
-### 服务端渲染
-
-```bash
-# 需要首先打包客户端渲染应用和服务端渲染应用
-npm run build
-
-# 启动服务
-npm run start
-```
-浏览器访问 [http://localhost:3333](http://localhost:3333)
-
 ### 同时启动两种渲染 开发模式
 
 ```bash
-# 首先清除两种模式下生成的manifest(可选)
-npm run clean
-
 # 启动服务
 npm run dev
 ```
@@ -72,6 +47,9 @@ npm run dev
 浏览器访问 
 客户端 [http://localhost:8000](http://localhost:8000)
 服务端 [http://localhost:3333](http://localhost:3333)
+登录
+账号：yangsen
+密码：ys173711
 
 ## Browsers support
 
